@@ -48,7 +48,21 @@ public class Driver
                         System.out.println("Invalid option please choose another number.");
 
                 }
+                System.out.println("\n\n Returning to repair system menu.");
+            }
+            catch(exception e)
+            {
+                System.out.println("Repair System Error! Please try again!");
+                e.printStackTrace();
             }
         }
-    }
+        private static void addSuspect(Repair repair, BufferedReader br) throws Exception
+        {
+
+        }
+
+        private static void printMenu()
+        {
+
+        }
 }
