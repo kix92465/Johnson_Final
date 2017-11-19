@@ -5,16 +5,19 @@ public class Driver
 {
     public static void main(String args[])
     {
-        //enter clients information
+        Repair repair = new Repair();
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
         try
         {
             while (true)
             {
                 printMenu();
                 int option = Integer.parseInt(br.readLine());
+
                 switch (option)
                 {
+
                     case 1:
                         addSuspect(repair, br);
                         break;
@@ -31,61 +34,60 @@ public class Driver
                         repair.printSortedServiceCenterSuspectsList();
                         break;
                     case 6:
-                        System.out.println("Latest In-Store Suspect to repair: " + repair.viewNextInStoreRepairableSuspect());
+                        System.out.println("Latest Precinct Suspect to repair: " + repair.viewNextInStoreRepairableSuspect());
                         break;
                     case 7:
-                        System.out.println("Latest In-Store Suspect being repaired: " + repair.getNextInStoreRepairableSuspect() + " (Removed from the system)");
+                        System.out.println("Latest Precinct Suspect being repaired: " + repair.getNextInStoreRepairableSuspect() + " (Removed from the system)");
                         break;
                     case 8:
-                        System.out.println("Next Service Center Suspect to repair: " + repair.viewNextServiceCenterRepairableSuspect());
+                        System.out.println("Latest Geek Squad City Suspect to repair: " + repair.viewNextServiceCenterRepairableSuspect());
                         break;
                     case 9:
-                        System.out.println("Next Service Center Suspect being repaired: " + repair.getNextServiceCenterRepairableSuspect() + " (Removed from the system)");
+                        System.out.println("Latest Geek Squad City Suspect being repaired: " + repair.getNextServiceCenterRepairableSuspect() + " (Removed from the system)");
                         break;
                     case 10:
                         System.exit(0);
                     default:
-                        System.out.println("Invalid option please choose another number.");
-
+                        System.out.println("Invalid Option!!");
                 }
-                System.out.println("\n\n Returning to repair system menu.");
-            }
-            catch(Exception e)
-            {
-                System.out.println("Repair System Error! Please try again!");
-                e.printStackTrace();
+                System.out.println("\n\n Returning to Repair System menu.");
             }
         }
-        private static void addSuspect(Repair repair, BufferedReader br) throws Exception
+        catch (Exception e)
         {
-            System.out.println("\n\n1. Add a Suspect.");
-            Client client = new Client();
-            System.out.print("Enter Client Name: ");
-            client.setName(br.readLine());
-            System.out.print("Enter Client Phone: ");
-            client.setPhone(br.readLine());
-            System.out.print("Enter Check-In date and time (ex: 2017-10-24 14:22) : ");
-            client.setSubmittedTime(br.readLine());
-            System.out.println("Is the repair type Precinct? (Y/N) : ");
-            repair.addSuspect(client, br.readLine().equalsIgnoreCase("N"));
-            System.out.println("Suspect Added Successfully!");
+            System.out.println("Repair System Error!! Please reboot!!");
+            e.printStackTrace();
         }
+    }
 
-        private static void printMenu()
-        {
-            System.out.println("Repair System:  ");
-            System.out.println("1. Add a Suspect.");
-            System.out.println("2. Print all Precinct suspects.");
-            System.out.println("3. Print all Geek Squad City suspects.");
-            System.out.println("4. Print sorted Precinct Suspects according to time checked-in.");
-            System.out.println("5. Print sorted Service Center Suspects according to time checked-in.");
-            System.out.println("6. View the next Precinct Suspect.");
-            System.out.println("7. Get the next Precinct Suspect.");
-            System.out.println("8. View the next Precinct Suspect.");
-            System.out.println("9. Get the next Geek Squad City Suspect.");
-            System.out.println("10. Exit.");
-            System.out.print("Enter you option number (1...10): ");
-        }
+    private static void addSuspect(Repair repair, BufferedReader br) throws Exception
+    {
+        System.out.println("\n\n1. Add a Suspect.");
+        Client client = new Client();
+        System.out.print("Enter Client name: ");
+        client.setName(br.readLine());
+        System.out.print("Enter Client phone: ");
+        client.setPhone(br.readLine());
+        System.out.print("Enter check-in date and time (ex: 2017-10-24 14:22) : ");
+        client.setSubmittedTime(br.readLine());
+        System.out.println("Is the repair type Precinct? (Y/N) : ");
+        repair.addSuspect(client, br.readLine().equalsIgnoreCase("N"));
+        System.out.println("Suspect added successfully!");
+    }
 
+    private static void printMenu()
+    {
+        System.out.println("Repair System: ");
+        System.out.println("1. Add a Suspect.");
+        System.out.println("2. Print all Precinct Suspects.");
+        System.out.println("3. Print all Geek Squad City Suspects.");
+        System.out.println("4. Print sorted Precinct Suspects according to time checked-in.");
+        System.out.println("5. Print sorted Geek Squad City Suspects according to time checked-in.");
+        System.out.println("6. View the next Precinct Suspect.");
+        System.out.println("7. Get the next Precinct Suspect.");
+        System.out.println("8. View the next Precinct Suspect.");
+        System.out.println("9. Get the next Geek Squad City Suspect.");
+        System.out.println("10. Exit.");
+        System.out.print("Enter the menu number that corresponds to the action you'd like to complete (1...10): ");
+    }
 }
-

@@ -1,5 +1,6 @@
 public class Repair
 {
+
     private Suspects inStoreSuspects;
     private Suspects serviceCenterSuspects;
 
@@ -17,31 +18,32 @@ public class Repair
             inStoreSuspects.push(client);
     }
 
-    //do a sort before returning the next suspect because there can be a new suspect
-    //that has been entered into the system with an earlier appointment
+    //Complete a sort before returning the next suspect as there can be a
+    //new suspect is entered in the system with an earlier check-in time
     public Client getNextInStoreRepairableSuspect()
     {
 
     }
 
-    //do a sort before returning the next suspect because there can be a new suspect
-    //that has been entered into the system with an earlier appointment
+    //Complete another sort before returning the next suspect as there can be a
+    //new suspect is entered in the system with an earlier check-in time
     public Client getNextServiceCenterRepairableSuspect()
     {
 
     }
 
-    //do a sort before returning the next suspect because there can be a new suspect
-    //that has been entered into the system with an earlier appointment
+    //Complete another sort before returning the next suspect as there can be a
+    //new suspect is entered in the system with an earlier check-in time
     public Client viewNextInStoreRepairableSuspect()
     {
 
     }
 
-    //do a sort before returning the next suspect because there can be a new suspect
-    //that has been entered into the system with an earlier appointment
+    //Complete another sort before returning the next suspect as there can be a
+    //new suspect is entered in the system with an earlier check-in time
     public Client viewNextServiceCenterRepairableSuspect()
     {
+
 
     }
 
@@ -50,7 +52,7 @@ public class Repair
 
     }
 
-    public void printSortedInStoreSuspectList()
+    public void printSortedInStoreSuspectsList()
     {
 
     }
