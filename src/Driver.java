@@ -55,7 +55,7 @@ public class Driver
         }
         catch (Exception e)
         {
-            System.out.println("Repair System Error!! Please reboot!!");
+            System.out.println("Repair System Error!! ");
             e.printStackTrace();
         }
     }
@@ -77,17 +77,17 @@ public class Driver
 
     private static void printMenu()
     {
-        System.out.println("Repair System: ");
-        System.out.println("1. Add a Suspect.");
-        System.out.println("2. Print all Precinct Suspects.");
-        System.out.println("3. Print all Geek Squad City Suspects.");
-        System.out.println("4. Print sorted Precinct Suspects according to time checked-in.");
-        System.out.println("5. Print sorted Geek Squad City Suspects according to time checked-in.");
-        System.out.println("6. View the next Precinct Suspect.");
-        System.out.println("7. Get the next Precinct Suspect.");
-        System.out.println("8. View the next Precinct Suspect.");
-        System.out.println("9. Get the next Geek Squad City Suspect.");
-        System.out.println("10. Exit.");
-        System.out.print("Enter the menu number that corresponds to the action you'd like to complete (1...10): ");
+        System.out.println("Repair System:  ");
+        System.out.println("1. Add a Suspect to queue:  ");
+        System.out.println("2. Display all Suspects in the Precinct queue (non sorted):  ");
+        System.out.println("3. Display all Suspects in the Geek Squad City queue (non sorted):  ");
+        System.out.println("4. Display sorted Precinct Suspects according to time checked-in:  ");
+        System.out.println("5. Display sorted Geek Squad City Suspects according to time checked-in:  ");
+        System.out.println("6. View the next Precinct Suspect:  ");
+        System.out.println("7. Get the next Precinct Suspect:  ");
+        System.out.println("8. View the next Precinct Suspect:  ");
+        System.out.println("9. Get the next Geek Squad City Suspect:  ");
+        System.out.println("10. Exit");
+        System.out.println("Enter menu number of the action you'd like to complete (1 through 10): ");
     }
 }
