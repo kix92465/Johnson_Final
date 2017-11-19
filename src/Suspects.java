@@ -97,5 +97,62 @@ public class Suspects
     }
 
     //Set up Merge Sort
+    private Node getPivot(Node firstNode)
+    {
+        if (firstNode == null)
+            return firstNode;
+
+        Node skipOnceNode = firstNode;
+        Node skipTwiceNode = firstNode.next;
+
+        while (skipTwiceNode != null)
+        {
+            skipTwiceNode = skipTwiceNode.next;
+            if (skipTwiceNode != null)
+            {
+                skipOnceNode = skipOnceNode.next;
+                skipTwiceNode = skipTwiceNode.next;
+            }
+        }
+        return skipOnceNode;
+    }
+
+    private Node compareAndMerge(Node a, Node b)
+    {
+        Node result = null;
+        if (a == null)
+            return b;
+        if (b == null)
+            return a;
+
+        if (a.value.getSubmittedTime().compareTo(b.value.getSubmittedTime()) < 0)
+        {
+            result = a;
+            result.next = compareAndMerge(a.next, b);
+        }
+        else
+        {
+            result = b;
+            result.next = compareAndMerge(a, b.next);
+        }
+        return result;
+    }
+
+    public Node mergeSort(Node firstNode)
+    {
+        if(firstNode == null) || firstNode.next == null
+        {
+            return firstNode;
+        }
+
+        Node middleNode = getPivot(firstNode);
+        Node midNextNode = middleNode.next;
+        middleNode.next = null;
+        //First is the first half set
+        Node left = mergeSort(firstNode);
+        //mid.next is the other half set
+        Node right = mergeSort(midNextNode);
+        return compareAndMerge(left, right);
+    }
 
 }
