@@ -1,11 +1,8 @@
-import javax.xml.soap.Node;
-import java.util.concurrent.Callable;
-
 public class Suspects
 {
-    //variables
+
     private int size = 0;
-    //first pushed suspect
+    // first pushed suspect
     private Node first = null;
 
     private class Node
@@ -15,7 +12,7 @@ public class Suspects
 
         Node(Client value)
         {
-            this.value =  value;
+            this.value = value;
             this.next = null;
         }
 
@@ -36,12 +33,14 @@ public class Suspects
         return this;
     }
 
-    //Deletes the top first value in the stack
-    //the value that has been deleted from the stack or null if the stack is empty
+    /**
+     * Deletes the top/first value in the stack
+     *
+     * @return The value that has been deleted from the stack or null if the stack is empty.
+     */
     public Client pop()
     {
-        if (first == null)
-            return null;
+        if (first == null) return null;
         Client object = first.value;
         first = first.next;
         size--;
@@ -81,22 +80,17 @@ public class Suspects
 
     public Node getTop()
     {
-       return first;
-    }
-
-    public void setTop(Node first)
-    {
-        this.first = first;
+        return first;
     }
 
     public Client top()
     {
-        if (first == null)
-            return null;
+        if (first == null) return null;
         return first.value;
     }
 
-    //Set up Merge Sort
+    //////// MERGE SORT /////////
+
     private Node getPivot(Node firstNode)
     {
         if (firstNode == null)
@@ -124,7 +118,6 @@ public class Suspects
             return b;
         if (b == null)
             return a;
-
         if (a.value.getSubmittedTime().compareTo(b.value.getSubmittedTime()) < 0)
         {
             result = a;
@@ -140,19 +133,17 @@ public class Suspects
 
     public Node mergeSort(Node firstNode)
     {
-        if(firstNode == null) || firstNode.next == null
+        if (firstNode == null || firstNode.next == null)
         {
             return firstNode;
         }
-
         Node middleNode = getPivot(firstNode);
         Node midNextNode = middleNode.next;
         middleNode.next = null;
-        //First is the first half set
+        // First ---> Mid is first half set
         Node left = mergeSort(firstNode);
-        //mid.next is the other half set
+        // Mid.next ---> Last is the other half set
         Node right = mergeSort(midNextNode);
         return compareAndMerge(left, right);
     }
-
 }
