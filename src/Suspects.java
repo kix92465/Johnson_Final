@@ -47,4 +47,55 @@ public class Suspects
         size--;
         return object;
     }
+
+    public boolean isEmpty()
+    {
+        return size == 0 && first == null;
+    }
+
+    public int size()
+    {
+        return size;
+    }
+
+    public void print()
+    {
+        StringBuilder sb = new StringBuilder();
+        sb.append("\n");
+        Node current = first;
+        while (current != null)
+        {
+            sb.append("| ").append(current.value).append(" \n");
+            for (int i = 0; i < 20; i++)
+                sb.append("-");
+            sb.append("\n");
+            current = current.next;
+        }
+        System.out.println(sb.toString());
+    }
+
+    public void setTop(Node first)
+    {
+        this.first = first;
+    }
+
+    public Node getTop()
+    {
+       return first;
+    }
+
+    public void setTop(Node first)
+    {
+        this.first = first;
+    }
+
+    public Client top()
+    {
+        if (first == null)
+            return null;
+        return first.value;
+    }
+
+    //Set up Merge Sort
+
 }
