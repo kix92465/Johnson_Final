@@ -38,7 +38,6 @@ public class Suspects
 
     //Deletes the top first value in the stack
     //the value that has been deleted from the stack or null if the stack is empty
-
     public Client pop()
     {
         if (first == null)
@@ -48,5 +47,4 @@ public class Suspects
         size--;
         return object;
     }
-
 }
