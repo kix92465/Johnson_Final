@@ -50,7 +50,7 @@ public class Driver
                 }
                 System.out.println("\n\n Returning to repair system menu.");
             }
-            catch(exception e)
+            catch(Exception e)
             {
                 System.out.println("Repair System Error! Please try again!");
                 e.printStackTrace();
@@ -58,11 +58,34 @@ public class Driver
         }
         private static void addSuspect(Repair repair, BufferedReader br) throws Exception
         {
-
+            System.out.println("\n\n1. Add a Suspect.");
+            Client client = new Client();
+            System.out.print("Enter Client Name: ");
+            client.setName(br.readLine());
+            System.out.print("Enter Client Phone: ");
+            client.setPhone(br.readLine());
+            System.out.print("Enter Check-In date and time (ex: 2017-10-24 14:22) : ");
+            client.setSubmittedTime(br.readLine());
+            System.out.println("Is the repair type Precinct? (Y/N) : ");
+            repair.addSuspect(client, br.readLine().equalsIgnoreCase("N"));
+            System.out.println("Suspect Added Successfully!");
         }
 
         private static void printMenu()
         {
-
+            System.out.println("Repair System:  ");
+            System.out.println("1. Add a Suspect.");
+            System.out.println("2. Print all Precinct suspects.");
+            System.out.println("3. Print all Geek Squad City suspects.");
+            System.out.println("4. Print sorted Precinct Suspects according to time checked-in.");
+            System.out.println("5. Print sorted Service Center Suspects according to time checked-in.");
+            System.out.println("6. View the next Precinct Suspect.");
+            System.out.println("7. Get the next Precinct Suspect.");
+            System.out.println("8. View the next Precinct Suspect.");
+            System.out.println("9. Get the next Geek Squad City Suspect.");
+            System.out.println("10. Exit.");
+            System.out.print("Enter you option number (1...10): ");
         }
+
 }
+
