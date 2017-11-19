@@ -6,18 +6,37 @@ public class Driver
     public static void main(String args[])
     {
         Repair repair = new Repair();
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
+        //Uncomment this code to have a random test case.
+
+//        Random rand = new Random();
+//        for (int i = 0; i < 10; i++)
+//      {
+//            Client client = new Client();
+//            client.setName(String.valueOf(i));
+//            String time = String.format("2017-10-30 %02d:%02d",
+////                    rand.nextInt(12) + 1,
+////                    rand.nextInt(30) + 1,
+//                    rand.nextInt(24), rand.nextInt(60));
+//            client.setSubmittedTime(time);
+//            repair.addSuspect(client, rand.nextBoolean());
+//        }
+//        repair.printInStoreSuspectsList();
+//        repair.printSortedInStoreSuspectsList();
+//
+//        repair.printServiceCenterSuspectsList();
+//        repair.printSortedServiceCenterSuspectsList();
+
+        //Enter Clients Info
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         try
         {
             while (true)
             {
                 printMenu();
                 int option = Integer.parseInt(br.readLine());
-
                 switch (option)
                 {
-
                     case 1:
                         addSuspect(repair, br);
                         break;
@@ -55,7 +74,7 @@ public class Driver
         }
         catch (Exception e)
         {
-            System.out.println("Repair System Error!! ");
+            System.out.println("Repair System Error!!");
             e.printStackTrace();
         }
     }
@@ -64,15 +83,15 @@ public class Driver
     {
         System.out.println("\n\n1. Add a Suspect.");
         Client client = new Client();
-        System.out.print("Enter Client name: ");
+        System.out.print("Enter Client Name: ");
         client.setName(br.readLine());
-        System.out.print("Enter Client phone: ");
+        System.out.print("Enter Client Phone Number: ");
         client.setPhone(br.readLine());
         System.out.print("Enter check-in date and time (ex: 2017-10-24 14:22) : ");
         client.setSubmittedTime(br.readLine());
-        System.out.println("Is the repair type Precinct? (Y/N) : ");
+        System.out.println("Is this repair to be completed in the Precinct (Y/N) : ");
         repair.addSuspect(client, br.readLine().equalsIgnoreCase("N"));
-        System.out.println("Suspect added successfully!");
+        System.out.println("Suspect added Successfully!");
     }
 
     private static void printMenu()

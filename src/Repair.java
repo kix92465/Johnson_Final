@@ -1,6 +1,5 @@
 public class Repair
 {
-
     private Suspects inStoreSuspects;
     private Suspects serviceCenterSuspects;
 
@@ -57,27 +56,27 @@ public class Repair
 
     public void printSortedInStoreSuspectsList()
     {
-        System.out.println("Precinct Suspects (sorted by time checked-in)");
+        System.out.println("In-Store Suspects (sorted by time reported)");
         sort(inStoreSuspects);
         inStoreSuspects.print();
     }
 
     public void printSortedServiceCenterSuspectsList()
     {
-        System.out.println("Geek Squad City Suspects (sorted by time checked-in)");
+        System.out.println("Service-Center Suspects (sorted by time reported)");
         sort(serviceCenterSuspects);
         serviceCenterSuspects.print();
     }
 
     public void printInStoreSuspectsList()
     {
-        System.out.println("Precinct Suspects");
+        System.out.println("In-Store Suspects");
         inStoreSuspects.print();
     }
 
     public void printServiceCenterSuspectsList()
     {
-        System.out.println("Geek Squad City Suspects");
+        System.out.println("Service-Center Suspects");
         serviceCenterSuspects.print();
     }
 }

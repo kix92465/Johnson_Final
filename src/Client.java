@@ -1,10 +1,10 @@
 public class Client
 {
-    //variables for client
+    //declare variables
     private String name;
     private String phone;
     private String suspect;
-    //Check in time format yyyy-mm-dd hh:mm
+    //ex: yyyy-MM-dd HH:mm
     private String submittedTime;
 
     public String getName()
@@ -47,8 +47,14 @@ public class Client
         this.submittedTime = submittedTime;
     }
 
+    @Override
     public String toString()
     {
-        return "Client Name = " + name +  ", Phone = " + phone + ", Suspect = " + suspect + ", Submitted Time = " + submittedTime;
+        return "Client{" +
+                "name='" + name + '\'' +
+                ", phone='" + phone + '\'' +
+                ", suspect='" + suspect + '\'' +
+                ", submittedTime='" + submittedTime + '\'' +
+                '}';
     }
 }
